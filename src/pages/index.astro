@@ -1,7 +1,7 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
-import HeroSection from "@components/main/HeroSection.astro";
-import MainGallery from "@components/main/MainGallery.astro";
+import HeroSection from "@components/index/HeroSection.astro";
+import MainGallery from "@components/index/MainGallery.astro";
 ---
 
 <MainLayout pageTitle="Home">
@@ -21,41 +21,52 @@ import MainGallery from "@components/main/MainGallery.astro";
         position: relative;
     }
 
-    .hero-container,
-    .gallery-container {
-        position: absolute;
-        inset: 0;
-    }
-
     .hero-container {
+        position: sticky;
+        top: 0;
         z-index: 2;
     }
 
     .gallery-container {
+        position: relative;
         z-index: 1;
+
         opacity: 0;
-        transition: opacity 0.3s;
+        transition: opacity 0.35s;
     }
 
     .scrolled .hero-container {
         opacity: 0;
-        transition: opacity 0.3s;
+        height: 50px;
+        transition: opacity 0.15s, height 0.3s;
         pointer-events: none;
     }
 
     .scrolled .gallery-container {
         opacity: 1;
     }
+
+    @media (min-width: 768px) {
+        .scrolled .hero-container {
+            height: 150px;
+        }
+    }
 </style>
 
-<script is:inline>
-    const root = document.getElementById("root");
+<script>
+    function setup() {
 
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 0) {
-            root.classList.add("scrolled");
-        } else {
-            root.classList.remove("scrolled");
+        function update() {
+            const root = document.getElementById("root");
+            if (window.scrollY > 0) {
+                root?.classList.add("scrolled");
+            } else {
+                root?.classList.remove("scrolled");
+            }
         }
-    });
+
+        window.addEventListener("scroll", update);
+    }
+
+    document.addEventListener("astro:page-load", setup);
 </script>
