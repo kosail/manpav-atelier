@@ -1,0 +1,40 @@
+---
+const year: number = new Date().getFullYear();
+---
+
+<footer>
+    <p class="pageTitle playfair">Manpav</p>
+    <p class="subtitle">Thoughtful work emerges from attention. If the message matters, the form must earn it.</p>
+    <p class="copyright">© 2021 - {year} Manpav Atelier. All rights reserved.</p>
+</footer>
+
+<style>
+    footer {
+        padding: 2rem 0;
+        border-top: 1px solid var(--color-text-slightest);
+        max-width: 1440px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .pageTitle {
+        font-size: 24px;
+        margin-bottom: 1rem;
+        align-self: flex-start;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        margin-bottom: 1rem;
+        align-self: flex-start;
+        color: var(--color-text-slight);
+    }
+
+    .copyright {
+        text-align: center;
+        color: var(--color-text-slight);
+        font-size: 12px;
+    }
+</style>

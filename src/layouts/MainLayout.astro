@@ -1,0 +1,53 @@
+---
+import "@styles/global.css";
+import Footer from "@components/Footer.astro";
+import Navbar from "@components/Navbar.astro";
+import LeftSidebar from "@components/LeftSidebar.astro";
+import RightSidebar from "@components/RightSidebar.astro";
+import { Font } from "astro:assets";
+
+interface Props {
+    pageTitle: string;
+}
+
+let { pageTitle } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/webp" href="/favicon.webp" />
+        <link rel="icon" href="/favicon.webp" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content={Astro.generator} />
+        <Font cssVariable="--font-playfair-display" />
+        <Font cssVariable="--font-dm-sans" />
+        <title>{pageTitle}</title>
+    </head>
+    <body>
+    <Navbar />
+    <div class="layout">
+
+        <LeftSidebar />
+        <main>
+            <slot />
+        </main>
+
+        <RightSidebar />
+    </div>
+
+    <Footer />
+    </body>
+</html>
+
+<style>
+    .layout {
+        display: flex;
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+
+    main {
+        flex: 1;
+    }
+</style>
