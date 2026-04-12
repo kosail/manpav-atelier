@@ -52,7 +52,7 @@ import MainGallery from "@components/main/MainGallery.astro";
     const root = document.getElementById("root");
 
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 1) {
+        if (window.scrollY > 0) {
             root.classList.add("scrolled");
         } else {
             root.classList.remove("scrolled");
