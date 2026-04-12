@@ -1,0 +1,85 @@
+---
+import MainLayout from "@layouts/MainLayout.astro"
+import Picture from "astro/components/Picture.astro"
+import mainPhoto from "@assets/me.webp"
+---
+
+<MainLayout pageTitle="About me">
+    <main class="main-container">
+        <h1 class="title">Every composition answers a question.</h1>
+
+        <div class="text-container">
+            <p>I work where intention becomes form. Every project begins with listening, understanding context, constraints, and the message beneath the surface. From there, design is built with precision: structure, rhythm, and typography aligned to communicate without excess.</p>
+
+            <p><b>My practice is grounded in user-centered visual communication, shaped by experience across corporate and editorial work</b>. I have led design teams, directed creative processes, and delivered projects within real constraints: time, scope, and clarity. That discipline is not only in me, but in every decision making clear that nothing is placed without purpose.</p>
+
+            <p>Teaching has been part of this path. Guiding others through design fundamentals, creative thinking, and professional tools has reinforced a simple principle: clarity is learned through doing, not theory alone. This belief carries into my own work. My process is visible, and decisions are deliberate.</p>
+
+            <p>I approach design as a system of relationships. Image, type, and space are not separate elements, but parts of a single voice. The goal is not to decorate, but to construct meaning.</p>
+
+            <p>And that is all about for me: <span class="impact-text">works that holds, communicates, and endures beyond its surface.</span></p>
+        </div>
+
+        <div class="image-container">
+            <Picture
+                    src={mainPhoto}
+                    formats={['avif', 'webp']}
+                    alt="Manuel Pavón"
+            />
+        </div>
+    </main>
+</MainLayout>
+
+<style>
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+    .text-container {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        text-align: justify;
+    }
+
+    .impact-text {
+        font-weight: bold;
+        color: var(--color-secondary);
+    }
+
+    .image-container {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%);
+
+        &:hover {
+            filter: grayscale(0%);
+            transition: filter 0.3s ease-in-out;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .main-container {
+            padding: 2rem;
+        }
+
+        .title {
+            text-align: center;
+        }
+    }
+
+</style>

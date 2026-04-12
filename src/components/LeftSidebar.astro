@@ -5,7 +5,11 @@ import EmailButton from "@components/EmailButton.astro";
 ---
 
 <aside class='left-sidebar'>
-    <MenuButton />
+    <nav class="pages">
+        <a class="pageTitle playfair" href="/">HOME</a>
+        <a class="pageTitle playfair" href="/works">WORKS.EP</a>
+        <a class="pageTitle playfair" href="/about">MORE ABOUT ME</a>
+    </nav>
 
     <div class="divider" />
     <div class="social-media">
@@ -25,6 +29,30 @@ import EmailButton from "@components/EmailButton.astro";
         flex: 1;
 
         height: 100vh;
+    }
+
+    .pages {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        flex: 1;
+        padding-top: 3rem;
+    }
+
+    a.pageTitle {
+        font-size: 1.5rem;
+        letter-spacing: 0.1rem;
+        writing-mode: sideways-lr;
+        text-orientation: sideways;
+        font-weight: 900;
+        padding: 0 1rem;
+
+        &:hover {
+            color: var(--color-primary);
+            transition: color 0.3s;
+        }
     }
 
     .divider {

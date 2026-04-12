@@ -28,7 +28,7 @@ let { pageTitle } = Astro.props;
 
         <ClientRouter />
 
-        <title>{pageTitle}</title>
+        <title>{pageTitle} | Manpav Atelier</title>
     </head>
 
     <body>
@@ -41,7 +41,7 @@ let { pageTitle } = Astro.props;
             <LeftSidebar />
         </aside>
 
-        <main class="content">
+        <main class="main-container">
             <slot />
         </main>
 
@@ -84,7 +84,7 @@ let { pageTitle } = Astro.props;
         grid-area: navbar;
     }
 
-    .content {
+    .main-container {
         grid-area: content;
     }
 
@@ -114,7 +114,7 @@ let { pageTitle } = Astro.props;
             grid-area: left;
         }
 
-        .content {
+        .main-container {
             grid-area: content;
         }
 

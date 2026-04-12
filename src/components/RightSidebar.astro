@@ -21,13 +21,16 @@
     }
 
     a.pageTitle {
-        text-decoration: none;
-        color: var(--color-text);
         font-size: 2.5rem;
         letter-spacing: 0.1rem;
         writing-mode: sideways-lr;
         text-orientation: sideways;
         font-weight: 900;
         padding: 0 1rem;
+
+        &:hover {
+            color: var(--color-primary);
+            transition: color 0.3s ease-in-out;
+        }
     }
 </style>

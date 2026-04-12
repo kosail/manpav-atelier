@@ -2,7 +2,8 @@
     --color-text: #221F1B;
     --color-text-slight: #696560;
     --color-text-slightest: #A29E99;
-
+    --color-primary: #26A269;
+    --color-secondary: #A51D2D;
 }
 
 html {
@@ -17,6 +18,12 @@ body {
     font-family: var(--font-dm-sans), sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+/* Classes for font-families */
 .playfair {
     font-family: var(--font-playfair-display), Georgia, serif;
 }
