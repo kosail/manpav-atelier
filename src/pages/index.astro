@@ -1,17 +1,61 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import HeroSection from "@components/main/HeroSection.astro";
-
+import MainGallery from "@components/main/MainGallery.astro";
 ---
 
 <MainLayout pageTitle="Home">
-    <main class="main-container">
-        <section class="hero">
+    <div class="container" id="root">
+        <section class="hero-container">
             <HeroSection />
         </section>
 
-        <section class="rest">
-            <slot />
+        <section class="gallery-container">
+            <MainGallery />
         </section>
-    </main>
+    </div>
 </MainLayout>
+
+<style>
+    .container {
+        position: relative;
+    }
+
+    .hero-container,
+    .gallery-container {
+        position: absolute;
+        inset: 0;
+    }
+
+    .hero-container {
+        z-index: 2;
+    }
+
+    .gallery-container {
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .scrolled .hero-container {
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+    }
+
+    .scrolled .gallery-container {
+        opacity: 1;
+    }
+</style>
+
+<script is:inline>
+    const root = document.getElementById("root");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 1) {
+            root.classList.add("scrolled");
+        } else {
+            root.classList.remove("scrolled");
+        }
+    });
+</script>
