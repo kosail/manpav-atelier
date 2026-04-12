@@ -1,12 +1,18 @@
 ---
 import MenuButton from "@components/MenuButton.astro";
 import EmailButton from "@components/EmailButton.astro";
+import { Picture } from "astro:assets";
+import logo from "@assets/favicon.webp";
 
 ---
 
 <aside class='left-sidebar'>
     <nav class="pages">
-        <a class="pageTitle playfair" href="/">HOME</a>
+        <div class="logo-container">
+            <a href="/" class="logo-link">
+                <Picture src={logo} alt="Home" class="logo" />
+            </a>
+        </div>
         <a class="pageTitle playfair" href="/works">WORKS.EP</a>
         <a class="pageTitle playfair" href="/about">MORE ABOUT ME</a>
     </nav>
@@ -41,13 +47,23 @@ import EmailButton from "@components/EmailButton.astro";
         padding-top: 3rem;
     }
 
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
     a.pageTitle {
         font-size: 1.5rem;
         letter-spacing: 0.1rem;
         writing-mode: sideways-lr;
         text-orientation: sideways;
         font-weight: 900;
-        padding: 0 1rem;
 
         &:hover {
             color: var(--color-primary);
