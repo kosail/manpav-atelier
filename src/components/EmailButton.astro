@@ -18,3 +18,13 @@ const { height = 24, width = 24 } = Astro.props;
         cursor: pointer;
     }
 </style>
+
+<script>
+    const email: string = "manapavon@gmail.com";
+    const subject: string = "Propuesta de trabajo | Manuel Pavón";
+
+    const button = document.querySelector(".email-button");
+    button?.addEventListener("click", () => {
+        window.location.href = `mailto:${email}?subject=${subject}`;
+    });
+</script>

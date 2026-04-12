@@ -1,0 +1,77 @@
+---
+import { Picture } from "astro:assets";
+import hero from "@assets/kuo-chiao-lin-4upJkLW4PFg-unsplash.webp";
+---
+
+<div class="hero_container">
+    <div class="top_container">
+        <h2 class="hero_text">Design that listen<br> before it<br> <em>speaks</em></h2>
+        <p class="hero_subtitle">Each project begins in observation. Meaning is shaped through <br>structure, restraint, and intent—where typography carries<br> voice and images carry weight.<br> The result is not decoration, but communication that holds.</p>
+    </div>
+
+    <div class="bottom_container">
+        <Picture src={hero}
+               formats={['avif', 'webp']}
+               alt="hero image"
+        />
+    </div>
+</div>
+
+<style>
+    .hero_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        width: 100%;
+    }
+
+    .top_container {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .bottom_container {
+        flex: 1;
+        display: flex;
+    }
+
+    .bottom_container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%);
+    }
+
+    .hero_text {
+        font-size: 2.4rem;
+        flex: 1;
+    }
+
+    .hero_subtitle {
+        font-size: 1.1rem;
+        flex: 1;
+        padding: 0 10px;
+        align-self: flex-end;
+        color: var(--color-text-slight);
+    }
+
+    @media (min-width: 768px) {
+        .top_container {
+            flex-direction: row;
+        }
+
+        .hero_text {
+            font-size: 4rem;
+        }
+
+        .hero_subtitle {
+            padding-bottom: 8vh;
+        }
+    }
+</style>
