@@ -1,19 +1,43 @@
 ---
+import MenuButton from "@components/MenuButton.astro";
+import EmailButton from "@components/EmailButton.astro";
 
 ---
 
 <aside class='left-sidebar'>
-    <h1>left</h1>
+    <MenuButton />
+
+    <div class="divider" />
+    <div class="social-media">
+        <EmailButton />
+    </div>
 </aside>
 
 <style>
     .left-sidebar {
-        align-self: flex-start;
+        position: sticky;
+        top: 0;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+
+        height: 100vh;
     }
 
-    @media (max-width: 768px) {
-        aside {
-            display: none;
-        }
+    .divider {
+        width: 1px;
+        flex: 4;
+    }
+
+    .social-media {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex: 1;
     }
 </style>

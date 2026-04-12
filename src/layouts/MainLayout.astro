@@ -24,30 +24,98 @@ let { pageTitle } = Astro.props;
         <Font cssVariable="--font-dm-sans" />
         <title>{pageTitle}</title>
     </head>
-    <body>
-    <Navbar />
-    <div class="layout">
 
-        <LeftSidebar />
-        <main>
+    <body>
+    <div class="page">
+        <header class="navbar">
+            <Navbar />
+        </header>
+
+        <aside class="left">
+            <LeftSidebar />
+        </aside>
+
+        <main class="content">
             <slot />
         </main>
 
-        <RightSidebar />
-    </div>
+        <aside class="right">
+            <RightSidebar />
+        </aside>
 
-    <Footer />
+        <footer class="footer">
+            <Footer />
+        </footer>
+    </div>
     </body>
 </html>
 
 <style>
-    .layout {
-        display: flex;
+    /* Mobile layout first */
+    .page {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+
+        grid-template-areas:
+            "navbar"
+            "content"
+            "footer";
+
+        min-height: 100vh;
         max-width: 1440px;
         margin: 0 auto;
     }
 
-    main {
-        flex: 1;
+    /* Hide sidebars on mobile by default */
+    .left,
+    .right {
+        display: none;
     }
+
+    /* Grid area assignments */
+    .navbar {
+        grid-area: navbar;
+    }
+
+    .content {
+        grid-area: content;
+    }
+
+    .footer {
+        grid-area: footer;
+    }
+
+    /* Desktop Layout - 768px and above */
+    @media(min-width: 768px) {
+        .page {
+            grid-template-columns: 160px 1fr 160px;
+            grid-template-rows: 1fr;
+            grid-template-areas:
+                "left content right";
+        }
+
+        .navbar {
+            display: none;
+        }
+
+        .footer {
+            display: none;
+        }
+
+        .left {
+            display: flex;
+            grid-area: left;
+        }
+
+        .content {
+            grid-area: content;
+        }
+
+        .right {
+            display: flex;
+            grid-area: right;
+        }
+    }
+
 </style>
