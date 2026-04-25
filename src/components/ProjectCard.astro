@@ -1,0 +1,107 @@
+---
+interface Props {
+  title: string;
+  category: string;
+  year: string;
+  image: ImageMetadata;
+  slug: string;
+  aspect?: "portrait" | "landscape" | "square";
+}
+
+const {
+  title,
+  category,
+  year,
+  image,
+  slug,
+  aspect = "portrait"
+} = Astro.props;
+
+const aspectClass = {
+  portrait: "aspect-portrait",
+  landscape: "aspect-landscape",
+  square: "aspect-square"
+}[aspect];
+---
+
+<a href={`/works/${slug}`} class="project-card">
+  <div class={`image-container ${aspectClass}`}>
+    <img src={image.src} alt={title} loading="lazy" />
+  </div>
+
+  <div class="content">
+    <h3 class="title">{title}</h3>
+    <span class="year">{year}</span>
+  </div>
+
+  <p class="category">{category}</p>
+</a>
+
+<style>
+  .project-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .image-container {
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease-out;
+  }
+
+  .project-card:hover img {
+    transform: scale(1.03);
+  }
+
+  .content {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .project-card:hover .title {
+    color: var(--color-primary);
+  }
+
+  .year {
+    flex-shrink: 0;
+  }
+
+  .category {
+    margin-top: 0.25rem;
+  }
+
+  /* Aspect ratios */
+  .aspect-portrait {
+    aspect-ratio: 3 / 4;
+  }
+
+  .aspect-landscape {
+    aspect-ratio: 4 / 3;
+  }
+
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    .title {
+      font-size: 1.5rem;
+    }
+  }
+</style>

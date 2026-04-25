@@ -1,23 +1,41 @@
 ---
-import MainLayout from "@layouts/MainLayout.astro"
-import Picture from "astro/components/Picture.astro"
-import mainPhoto from "@assets/me.webp"
+import MainLayout from "@layouts/MainLayout.astro";
+import Picture from "astro/components/Picture.astro";
+import mainPhoto from "@assets/me.webp";
+import {email, emailTrigger} from "@data/email";
+
+const year: number = new Date().getFullYear();
+
+const contactRef = emailTrigger();
 ---
 
 <MainLayout pageTitle="About me">
     <main class="main-container">
+        <p class="caption">More about me.</p>
         <h1 class="title">Every composition answers a question.</h1>
 
         <div class="text-container">
-            <p>I work where intention becomes form. Every project begins with listening, understanding context, constraints, and the message beneath the surface. From there, design is built with precision: structure, rhythm, and typography aligned to communicate without excess.</p>
+            <p>I work where intention becomes form. Every project begins with listening, understanding context,
+                constraints, and the message beneath the surface. From there, design is built with precision: structure,
+                rhythm, and typography aligned to communicate without excess.</p>
 
-            <p><b>My practice is grounded in user-centered visual communication, shaped by experience across corporate and editorial work</b>. I have led design teams, directed creative processes, and delivered projects within real constraints: time, scope, and clarity. That discipline is not only in me, but in every decision making clear that nothing is placed without purpose.</p>
+            <p><b>My practice is grounded in user-centered visual communication, shaped by experience across corporate
+                and editorial work</b>. I have led design teams, directed creative processes, and delivered projects
+                within real constraints: time, scope, and clarity. That discipline is not only in me, but in every
+                decision making clear that nothing is placed without purpose.</p>
 
-            <p>Teaching has been part of this path. Guiding others through design fundamentals, creative thinking, and professional tools has reinforced a simple principle: clarity is learned through doing, not theory alone. This belief carries into my own work. My process is visible, and decisions are deliberate.</p>
+            <p>Teaching has been part of this path. Guiding others through design fundamentals, creative thinking, and
+                professional tools has reinforced a simple principle: clarity is learned through doing, not theory
+                alone. This belief carries into my own work.</p>
 
-            <p>I approach design as a system of relationships. Image, type, and space are not separate elements, but parts of a single voice. The goal is not to decorate, but to construct meaning.</p>
+            <p>I approach design as a system of relationships. Image, type, and space are not separate elements, but
+                parts of a single voice. The goal is not to decorate, but to construct meaning. And that is all about
+                for me: works that holds, communicates, and endures beyond its surface.</p>
 
-            <p>And that is all about for me: <span class="impact-text">works that holds, communicates, and endures beyond its surface.</span></p>
+            <p>Reach me out and let's discuss how to make a reality of your projects, together.</p>
+            <a href={contactRef}><span class="impact-text">Send me an email to {email}.</span></a>
+            <br>
+            <p class="sign-text">— Manuel A. Pavón<br/>Honduras, {year}.</p>
         </div>
 
         <div class="image-container">
@@ -39,15 +57,21 @@ import mainPhoto from "@assets/me.webp"
         padding: 1rem;
     }
 
+    .caption {
+        color: var(--color-text-slight);
+        align-self: flex-start;
+    }
+
     .title {
         font-size: 2.5rem;
         margin-bottom: 1rem;
         text-align: left;
+        align-self: flex-start;
     }
+
     .text-container {
         font-size: 1.2rem;
         margin-bottom: 2rem;
-        text-align: justify;
     }
 
     .impact-text {
@@ -58,6 +82,7 @@ import mainPhoto from "@assets/me.webp"
     .image-container {
         width: 100%;
         max-width: 400px;
+        margin: 0 auto;
     }
 
     .image-container img {
@@ -72,13 +97,18 @@ import mainPhoto from "@assets/me.webp"
         }
     }
 
+    .sign-text {
+        color: var(--color-text-slight);
+        letter-spacing: 0.4px;
+    }
+
     @media (min-width: 768px) {
         .main-container {
-            padding: 2rem;
+            all: unset;
         }
 
-        .title {
-            text-align: center;
+        .text-container {
+            text-align: justify;
         }
     }
 
