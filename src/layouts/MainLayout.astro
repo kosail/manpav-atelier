@@ -5,68 +5,70 @@ import Navbar from "@components/Navbar.astro";
 import LeftSidebar from "@components/LeftSidebar.astro";
 import RightSidebar from "@components/RightSidebar.astro";
 import {ClientRouter} from "astro:transitions";
-import { Font } from "astro:assets";
+import {Font} from "astro:assets";
 
 interface Props {
     pageTitle: string;
 }
 
-let { pageTitle } = Astro.props;
+const {pageTitle} = Astro.props;
+const site = import.meta.env.SITE + import.meta.env.BASE_URL;
+console.log(site);
 ---
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content={Astro.generator} />
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="generator" content={Astro.generator}/>
 
-        <!-- META TAGS: GONNA REPLACE THIS IN THE FUTURE WITH PROPER ASTRO SEO -->
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Manpav Portafolio" />
-        <meta property="og:description" content="Professional graphic design services." />
-        <meta property="og:url" content="https://kosail.github.io/manpav-atelier" />
-        <meta property="og:image" content="https://kosail.github.io/manpav-atelier/favicon.webp" />
+    <!-- META TAGS: GONNA REPLACE THIS IN THE FUTURE WITH PROPER ASTRO SEO -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Manpav Portafolio"/>
+    <meta property="og:description" content="Professional graphic design services."/>
+    <meta property="og:url" content={site}/>
+    <meta property="og:image" content={`${site}/favicon.webp`}/>
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Manpav Portafolio" />
-        <meta name="twitter:description" content="Professional graphic design services." />
-        <meta name="twitter:image" content="https://kosail.github.io/manpav-atelier/favicon.webp" />
-        <!-- META TAGS -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Manpav Portafolio"/>
+    <meta name="twitter:description" content="Professional graphic design services."/>
+    <meta name="twitter:image" content={`${site}/favicon.webp`}/>
+    <!-- META TAGS -->
 
-        <link rel="icon" type="image/webp" href="/manpav-atelier/favicon.webp" />
-        <link rel="icon" href="/manpav-atelier/favicon.webp" />
+    <link rel="icon" type="image/webp" href="favicon.webp"/>
+    <link rel="icon" href="favicon.webp"/>
 
-        <Font cssVariable="--font-playfair-display" />
-        <Font cssVariable="--font-dm-sans" />
+    <Font cssVariable="--font-playfair-display"/>
+    <Font cssVariable="--font-dm-sans"/>
 
-        <ClientRouter />
+    <ClientRouter/>
 
-        <title>{pageTitle} | Manpav Atelier</title>
-    </head>
+    <title>{pageTitle} | Manpav Atelier</title>
+</head>
 
-    <body>
-    <div class="page">
-        <header class="navbar">
-            <Navbar />
-        </header>
+<body>
+<div class="page">
+    <header class="navbar">
+        <Navbar/>
+    </header>
 
-        <aside class="left">
-            <LeftSidebar />
-        </aside>
+    <aside class="left">
+        <LeftSidebar/>
+    </aside>
 
-        <main class="main-container">
-            <slot />
-        </main>
+    <main class="main-container">
+        <slot/>
+    </main>
 
-        <aside class="right">
-            <RightSidebar />
-        </aside>
+    <aside class="right">
+        <RightSidebar/>
+    </aside>
 
-        <footer class="footer">
-            <Footer />
-        </footer>
-    </div>
-    </body>
+    <footer class="footer">
+        <Footer/>
+    </footer>
+</div>
+</body>
 </html>
 
 <style>
@@ -106,7 +108,7 @@ let { pageTitle } = Astro.props;
     }
 
     /* Desktop Layout - 768px and above */
-    @media(min-width: 768px) {
+    @media (min-width: 768px) {
         .page {
             grid-template-columns: 160px 1fr 160px;
             grid-template-rows: 1fr;

@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/ts-plugin": "^1.10.7",
-    "astro": "^6.1.9",
+    "astro": "^6.2.1",
     "sharp": "^0.34.5"
   },
   "devDependencies": {

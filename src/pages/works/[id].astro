@@ -1,0 +1,53 @@
+---
+import {getCollection, render} from 'astro:content';
+import MainLayout from '@layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+    const projects = await getCollection('projects');
+    return projects.map((project) => ({
+        params: {id: project.id},
+        props: {project}
+    }));
+}
+
+const {project} = Astro.props;
+const {Content} = await render(project);
+const {title, image, aspect, category, year, duration, overview, summary} = project.data;
+---
+<MainLayout pageTitle={title}>
+    <!-- Hero -->
+    <section class="container hero">
+        <div class="grid">
+            <div class="col-8">
+                <h1>{title}</h1>
+            </div>
+        </div>
+
+        <div class="meta-grid">
+            <div>
+                <p class="caption">Category</p>
+                <p>{category}</p>
+            </div>
+            <div>
+                <p class="caption">Year</p>
+                <p>{year}</p>
+            </div>
+            <div>
+                <p class="caption">Role</p>
+                <p>Art Direction, Design</p>
+            </div>
+            <div>
+                <p class="caption">Duration</p>
+                <p>8 Months</p>
+            </div>
+        </div>
+    </section>
+</MainLayout>
+
+
+<style>
+    h1 {
+        font-size: 48px;
+        padding-left: 16px;
+    }
+</style>

@@ -1,10 +1,11 @@
 // @ts-check
-import { defineConfig, fontProviders } from "astro/config";
+import {defineConfig, fontProviders} from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://kosail.github.io",
-  base: "/manpav-atelier",
+  // site: "https://kosail.github.io",
+  // base: "/manpav-atelier",
+  site: "http://localhost:4321",
   fonts: [
     {
       provider: fontProviders.google(),

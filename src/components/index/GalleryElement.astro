@@ -1,5 +1,5 @@
 ---
-import { Picture } from "astro:assets";
+import {Picture} from "astro:assets";
 
 interface Props {
     image: any; // TODO: Replace this with the correct type ASAP
@@ -7,14 +7,14 @@ interface Props {
     class?: string;
 }
 
-const { image, alt, class : className } = Astro.props;
+const {image, alt, class: className} = Astro.props;
 ---
 
 
 <div class={className}>
     <Picture
             src={image}
-            formats={['avif', 'webp']}
+            formats={['webp', 'jpg']}
             alt={alt}
             class="gallery-image"
     />
