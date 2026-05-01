@@ -77,17 +77,17 @@ const {
         )
     }
 
-    <!-- Process -->
-    <section class="section">
-        {
-            imageOnly ? (
-                    <section class="full-bleed">
-                        <div class="image-only-content">
-                            <Content/>
-                        </div>
-                    </section>
+    <!-- Content -->
+    {
+        imageOnly ? (
+                <section class="full-bleed">
+                    <div class="image-only-content">
+                        <Content/>
+                    </div>
+                </section>
 
-            ) : (
+        ) : (
+                <section class="section">
                     <hr class="rule"/>
                     <div class="grid">
                         <div class="col-3">
@@ -97,9 +97,9 @@ const {
                             <Content/>
                         </div>
                     </div>
-            )
-        }
-    </section>
+                </section>
+        )
+    }
 
 </MainLayout>
 
@@ -113,11 +113,7 @@ const {
     .section {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 4rem 1.5rem;
-    }
-
-    .hero {
-        padding-top: 3rem;
+        padding: 0 1.5rem;
     }
 
     .grid {
@@ -142,6 +138,7 @@ const {
     .meta-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 2rem;
         gap: 2rem;
     }
 
@@ -155,6 +152,7 @@ const {
         font-size: 2.5rem;
         line-height: 1.2;
         font-weight: 600;
+        margin-bottom: 1rem;
     }
 
     @media (min-width: 768px) {
@@ -208,6 +206,10 @@ const {
         width: 100%;
         height: auto;
         object-fit: contain;
+    }
+
+    .image-only-content :global(p) {
+        margin: 0;
     }
 
     .image-only-content :global(p img) {

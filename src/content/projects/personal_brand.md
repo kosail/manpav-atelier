@@ -10,5 +10,4 @@ summary: ""
 imageOnly: true
 ---
 
-
 ![Personal Brand Redesign](../../assets/projects/personal_brand_main.webp)
