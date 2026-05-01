@@ -12,42 +12,229 @@ export async function getStaticPaths() {
 
 const {project} = Astro.props;
 const {Content} = await render(project);
-const {title, image, aspect, category, year, duration, overview, summary} = project.data;
+const {
+    title,
+    image,
+    category,
+    year,
+    duration,
+    overview,
+    summary,
+    imageOnly
+} = project.data;
 ---
+
 <MainLayout pageTitle={title}>
     <!-- Hero -->
-    <section class="container hero">
+    <section class="section hero">
         <div class="grid">
             <div class="col-8">
-                <h1>{title}</h1>
+                <h1 class="heading-xl">{title}</h1>
             </div>
         </div>
 
         <div class="meta-grid">
             <div>
                 <p class="caption">Category</p>
-                <p>{category}</p>
+                <p class="text">{category}</p>
             </div>
             <div>
                 <p class="caption">Year</p>
-                <p>{year}</p>
+                <p class="text">{year}</p>
             </div>
             <div>
                 <p class="caption">Role</p>
-                <p>Art Direction, Design</p>
+                <p class="text">Art Direction, Design</p>
             </div>
             <div>
                 <p class="caption">Duration</p>
-                <p>8 Months</p>
+                <p class="text">{duration}</p>
             </div>
         </div>
     </section>
+
+    <!-- Full image -->
+    <section class="full-bleed">
+        <div class="media">
+            <img src={image.src} alt={title}/>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    {
+        overview && summary && (
+                    <section class="section">
+                        <div class="grid">
+                            <div class="col-3">
+                                <p class="caption">Overview</p>
+                            </div>
+                            <div class="col-7">
+                                <p class="lead">{overview}</p>
+                                <p class="body">{summary}</p>
+                            </div>
+                        </div>
+                    </section>
+        )
+    }
+
+    <!-- Process -->
+    <section class="section">
+        {
+            imageOnly ? (
+                    <section class="full-bleed">
+                        <div class="image-only-content">
+                            <Content/>
+                        </div>
+                    </section>
+
+            ) : (
+                    <hr class="rule"/>
+                    <div class="grid">
+                        <div class="col-3">
+                            <p class="caption">Process</p>
+                        </div>
+                        <div class="col-7">
+                            <Content/>
+                        </div>
+                    </div>
+            )
+        }
+    </section>
+
 </MainLayout>
 
 
 <style>
-    h1 {
-        font-size: 48px;
-        padding-left: 16px;
+    .container {
+        min-height: 100vh;
+        background: #fff;
+    }
+
+    .section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem;
+    }
+
+    .hero {
+        padding-top: 3rem;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .col-8 {
+        grid-column: span 8;
+    }
+
+    .col-7 {
+        grid-column: span 7;
+    }
+
+    .col-3 {
+        grid-column: span 3;
+    }
+
+    .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+        .meta-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .heading-xl {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        font-weight: 600;
+    }
+
+    @media (min-width: 768px) {
+        .heading-xl {
+            font-size: 3.5rem;
+        }
+    }
+
+    .caption {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+        color: var(--color-text-slight);
+    }
+
+    .text {
+        font-size: 0.875rem;
+    }
+
+    .lead {
+        font-size: 1.5rem;
+        line-height: 1.4;
+        margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+        .lead {
+            font-size: 2rem;
+        }
+    }
+
+    .body {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        color: var(--color-text-slight);
+    }
+
+    .full-bleed {
+        width: 100%;
+    }
+
+    .media {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .media img {
+        max-height: 800px;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .image-only-content :global(p img) {
+        margin: 0;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+    }
+
+    .rule {
+        border: none;
+        border-top: 1px solid var(--color-text-slightest);
+        margin-bottom: 2rem;
+    }
+
+    @media (max-width: 1024px) {
+        .col-8,
+        .col-7,
+        .col-3 {
+            grid-column: span 12;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .media {
+            height: 800px;
+        }
     }
 </style>

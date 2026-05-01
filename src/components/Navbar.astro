@@ -5,13 +5,16 @@ interface Props {
     class?: string;
 }
 
-const { class: className } = Astro.props;
+const {class: className} = Astro.props;
+
+const site = import.meta.env.SITE + import.meta.env.BASE_URL;
 ---
 <nav class={className}>
-    <a class="pageTitle playfair"
-       href="/manpav-atelier/"
-    >MANUEL PAVÓN</a>
-    <MenuButton />
+    <a class="pageTitle playfair" href={site}
+    >
+        MANUEL PAVÓN
+    </a>
+    <MenuButton/>
 </nav>
 
 <style>
