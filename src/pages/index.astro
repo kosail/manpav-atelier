@@ -7,11 +7,11 @@ import MainGallery from "@components/index/MainGallery.astro";
 <MainLayout pageTitle="Home">
     <div class="container" id="root">
         <section class="hero-container">
-            <HeroSection />
+            <HeroSection/>
         </section>
 
         <section class="gallery-container">
-            <MainGallery />
+            <MainGallery/>
         </section>
     </div>
 </MainLayout>
@@ -65,6 +65,8 @@ import MainGallery from "@components/index/MainGallery.astro";
             }
         }
 
+        // Remove and reattach to avoid duplicates
+        window.removeEventListener("scroll", update);
         window.addEventListener("scroll", update);
     }
 

@@ -1,10 +1,14 @@
 ---
+import EmailButton from "@components/EmailButton.astro";
+
 const year: number = new Date().getFullYear();
+const site = import.meta.env.SITE + import.meta.env.BASE_URL;
 ---
 
 <footer>
-    <p class="pageTitle playfair">Manpav</p>
+    <a href={site} class="pageTitle playfair">Manpav</a>
     <p class="subtitle">Thoughtful work emerges from attention. If the message matters, the form must earn it.</p>
+    <EmailButton/>
     <p class="copyright">© 2021 - {year} Manpav Atelier. All rights reserved.</p>
 </footer>
 

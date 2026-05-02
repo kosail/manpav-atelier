@@ -2,19 +2,17 @@
 import EmailButton from "@components/EmailButton.astro";
 import {Picture} from "astro:assets";
 import logo from "@assets/favicon.webp";
-
-const site = import.meta.env.SITE + import.meta.env.BASE_URL;
 ---
 
 <aside class='left-sidebar'>
     <nav class="pages">
         <div class="logo-container">
-            <a href={site} class="logo-link">
+            <a href={"/"} class="logo-link">
                 <Picture src={logo} alt="Home" title="Home" class="logo"/>
             </a>
         </div>
-        <a class="pageTitle playfair" href={site + "works"} }>WORKS</a>
-        <a class="pageTitle playfair" href={site + "about"}>MORE ABOUT ME</a>
+        <a class="pageTitle playfair" href={"/works"} }>WORKS</a>
+        <a class="pageTitle playfair" href={"/about"}>MORE ABOUT ME</a>
     </nav>
 
     <div class="divider"/>
