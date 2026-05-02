@@ -1,6 +1,6 @@
 ---
 title: "Posters for nutritionists"
-image: "../../assets/projects/banners/posters_nutritionist.webp"
+image: "../../assets/projects/banners/posters_nutrition.webp"
 aspect: "landscape"
 category: "Editorial & Informative Design, Health & Wellness Communication Design"
 role: "Lead Designer — research, concept, art direction, information structuring, layout system, typography, illustration direction, and final production"
