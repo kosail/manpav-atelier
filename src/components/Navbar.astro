@@ -4,13 +4,13 @@ interface Props {
 }
 
 const {class: className} = Astro.props;
+
+const site = import.meta.env.SITE + import.meta.env.BASE_URL;
 ---
 
 <nav class={className}>
     <div class="main-container">
-        <a class="pageTitle playfair" href="/">
-            MANUEL PAVÓN
-        </a>
+        <a class="pageTitle playfair" href={site}>MANUEL PAVÓN</a>
 
         <button class="menu-button" id="menu-button">
             <svg width="24px" height="24px" fill="none">
@@ -27,47 +27,14 @@ const {class: className} = Astro.props;
     </div>
 </nav>
 
-<script>
-    function initMenu() {
-        const menuButton = document.getElementById('menu-button');
-        const menuContainer = document.getElementById('menu-container');
-
-        if (!menuButton || !menuContainer) return;
-
-        let isMenuOpen = false;
-
-        function toggleMenu() {
-            isMenuOpen = !isMenuOpen;
-
-            if (isMenuOpen) {
-                menuContainer.style.transform = 'translateY(0)';
-                menuContainer.style.maxHeight = '200px';
-                menuContainer.style.opacity = '1';
-            } else {
-                menuContainer.style.transform = 'translateY(-10px)';
-                menuContainer.style.maxHeight = '0';
-                menuContainer.style.opacity = '0';
-            }
-        }
-
-        // Remove any existing listener to avoid duplicates
-        menuButton.removeEventListener('click', toggleMenu);
-        menuButton.addEventListener('click', toggleMenu);
-    }
-
-    initMenu();
-    document.addEventListener('astro:after-swap', initMenu);
-</script>
-
 <style>
     nav {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        padding: 0.4rem 1rem;
-        min-height: 55px;
-        max-height: 140px;
+        margin-top: 0.4rem;
+        padding: 0 1rem;
         max-width: 100%;
     }
 
@@ -123,3 +90,35 @@ const {class: className} = Astro.props;
         cursor: pointer;
     }
 </style>
+
+<script>
+    function initMenu() {
+        const menuButton = document.getElementById('menu-button');
+        const menuContainer = document.getElementById('menu-container');
+
+        if (!menuButton || !menuContainer) return;
+
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+
+            if (isMenuOpen) {
+                menuContainer.style.transform = 'translateY(0)';
+                menuContainer.style.maxHeight = '200px';
+                menuContainer.style.opacity = '1';
+            } else {
+                menuContainer.style.transform = 'translateY(-10px)';
+                menuContainer.style.maxHeight = '0';
+                menuContainer.style.opacity = '0';
+            }
+        }
+
+        // Remove any existing listener to avoid duplicates
+        menuButton.removeEventListener('click', toggleMenu);
+        menuButton.addEventListener('click', toggleMenu);
+    }
+
+    initMenu();
+    document.addEventListener('astro:after-swap', initMenu);
+</script>

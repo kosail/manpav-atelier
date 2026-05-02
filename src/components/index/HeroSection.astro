@@ -1,5 +1,5 @@
 ---
-import { Picture } from "astro:assets";
+import {Picture} from "astro:assets";
 import hero from "@assets/kuo-chiao-lin-4upJkLW4PFg-unsplash.webp";
 ---
 
@@ -11,8 +11,8 @@ import hero from "@assets/kuo-chiao-lin-4upJkLW4PFg-unsplash.webp";
 
     <div class="bottom-container">
         <Picture src={hero}
-               formats={['avif', 'webp']}
-               alt="hero image"
+                 formats={['avif', 'webp']}
+                 alt="hero image"
         />
     </div>
 </div>
@@ -51,6 +51,7 @@ import hero from "@assets/kuo-chiao-lin-4upJkLW4PFg-unsplash.webp";
 
     .hero-text {
         font-size: 2.4rem;
+        margin-top: 0;
     }
 
     .hero-subtitle {
@@ -77,8 +78,10 @@ import hero from "@assets/kuo-chiao-lin-4upJkLW4PFg-unsplash.webp";
         .hero-subtitle {
             padding-bottom: 8vh;
         }
+
         .break {
             display: inline;
+
             &::after {
                 content: "\A";
                 white-space: pre;
