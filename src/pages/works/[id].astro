@@ -43,19 +43,19 @@ const worksPage = import.meta.env.SITE + import.meta.env.BASE_URL + 'works';
 
         <div class="meta-grid">
             <div>
-                <p class="caption">Category</p>
+                <p class="side-title">Category</p>
                 <p class="text">{category}</p>
             </div>
             <div>
-                <p class="caption">Year</p>
+                <p class="side-title">Year</p>
                 <p class="text">{year}</p>
             </div>
             <div>
-                <p class="caption">Role</p>
+                <p class="side-title">Role</p>
                 <p class="text">{role}</p>
             </div>
             <div>
-                <p class="caption">Duration</p>
+                <p class="side-title">Duration</p>
                 <p class="text">{duration}</p>
             </div>
         </div>
@@ -74,7 +74,7 @@ const worksPage = import.meta.env.SITE + import.meta.env.BASE_URL + 'works';
                     <section class="section">
                         <div class="grid">
                             <div class="col-3">
-                                <p class="caption">Overview</p>
+                                <p class="side-title">Overview</p>
                             </div>
                             <div class="col-7">
                                 <p class="lead playfair">{overview}</p>
@@ -92,7 +92,7 @@ const worksPage = import.meta.env.SITE + import.meta.env.BASE_URL + 'works';
                         <hr class="rule"/>
                         <div class="grid">
                             <div class="col-3">
-                                <p class="caption">Process</p>
+                                <p class="side-title">Process</p>
                             </div>
                             <div class="col-7 body">
                                 {additionalText}
@@ -170,6 +170,14 @@ const worksPage = import.meta.env.SITE + import.meta.env.BASE_URL + 'works';
 
     .caption {
         font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+        color: var(--color-text-slight);
+    }
+
+    .side-title {
+        font-size: 1rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         margin-bottom: 0.5rem;
