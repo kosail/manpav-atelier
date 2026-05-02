@@ -22,9 +22,11 @@ const aspectClass = {
     landscape: "aspect-landscape",
     square: "aspect-square"
 }[aspect];
+
+const site = import.meta.env.SITE + import.meta.env.BASE_URL;
 ---
 
-<a href={`/works/${id}`} class="project-card">
+<a href={`${site}/works/${id}`} class="project-card">
     <div class={`image-container ${aspectClass}`}>
         <img src={image} alt={title} loading="lazy"/>
     </div>
