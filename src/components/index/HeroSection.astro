@@ -51,7 +51,6 @@ import hero from "@assets/kuo-chiao-lin-4upJkLW4PFg-unsplash.webp";
 
     .hero-text {
         font-size: 2.4rem;
-        margin-top: 0;
     }
 
     .hero-subtitle {
@@ -62,6 +61,12 @@ import hero from "@assets/kuo-chiao-lin-4upJkLW4PFg-unsplash.webp";
 
     .break {
         display: none;
+    }
+
+    @media (max-width: 767px) and (max-height: 720px) {
+        .hero-text {
+            margin-top: 0;
+        }
     }
 
     @media (min-width: 768px) and (min-height: 721px) {
