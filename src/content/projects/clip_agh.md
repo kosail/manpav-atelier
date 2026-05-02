@@ -13,4 +13,4 @@ additionalText: "The piece is built around purpose. Each frame highlights partic
 The pacing remains focused and intentional. Visuals and rhythm work together to reinforce identity and invite connection. In a brief format, the video communicates impact with clarity, encouraging new members and volunteers to become part of the movement."
 ---
 
-<video src="../../assets/projects/clip_agh/main.mp4" controls width="100%"></video>
+<video src="https://github.com/kosail/manpav-atelier/raw/2e8a4a78449ec216f70282b320f5f27e43575eb2/src/assets/projects/clip_agh/main.mp4" controls width="100%"></video>

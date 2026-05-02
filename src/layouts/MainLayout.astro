@@ -13,6 +13,7 @@ interface Props {
 
 const {pageTitle} = Astro.props;
 const site = import.meta.env.SITE + import.meta.env.BASE_URL;
+const favicon = site + "favicon.webp";
 ---
 
 <html lang="en">
@@ -26,16 +27,16 @@ const site = import.meta.env.SITE + import.meta.env.BASE_URL;
     <meta property="og:title" content="Manpav Portafolio"/>
     <meta property="og:description" content="Professional graphic design services."/>
     <meta property="og:url" content={site}/>
-    <meta property="og:image" content={`${site}/favicon.webp`}/>
+    <meta property="og:image" content={favicon}/>
 
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="Manpav Portafolio"/>
     <meta name="twitter:description" content="Professional graphic design services."/>
-    <meta name="twitter:image" content={`${site}/favicon.webp`}/>
+    <meta name="twitter:image" content={favicon}/>
     <!-- META TAGS -->
 
-    <link rel="icon" type="image/webp" href="favicon.webp"/>
-    <link rel="icon" href="favicon.webp"/>
+    <link rel="icon" type="image/webp" href={favicon}/>
+    <link rel="icon" href={favicon}/>
 
     <Font cssVariable="--font-playfair-display"/>
     <Font cssVariable="--font-dm-sans"/>
