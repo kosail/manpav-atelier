@@ -1,12 +1,16 @@
 ---
-title: "Clip AGH"
-image: "../../assets/projects/banners/personal_brand.webp"
+title: "AGH — Guiding Movement Clip"
+image: "../../assets/projects/banners/agh_clip.webp"
 aspect: "landscape"
-category: "Web"
-year: 2026
-duration: "3 months"
-overview: "Full description"
-summary: "Short summary"
-imageOnly: false
+category: "Social Media Content & Motion Design"
+role: "Lead Designer — concept, direction, editing, and visual storytelling"
+year: 2024
+duration: "-"
+overview: "A short promotional piece created for the Asociación Nacional de Muchachas Guías de Honduras."
+summary: "The video centers on growth, community, and the formation of young leaders, translating the spirit of the organization into a clear and engaging visual message."
+additionalText: "The piece is built around purpose. Each frame highlights participation, learning, and shared experience, allowing the message to emerge through real moments rather than abstraction.
+
+The pacing remains focused and intentional. Visuals and rhythm work together to reinforce identity and invite connection. In a brief format, the video communicates impact with clarity, encouraging new members and volunteers to become part of the movement."
 ---
 
+<video src="../../assets/projects/clip_agh/main.mp4" controls width="100%"></video>

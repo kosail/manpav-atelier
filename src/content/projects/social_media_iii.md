@@ -1,16 +1,16 @@
 ---
 title: "Social Media III Campaign"
-image: "../../assets/projects/banners/personal_brand.webp"
+image: "../../assets/projects/banners/social_media_three.webp"
 aspect: "landscape"
-category: "Web"
-year: 2026
-duration: "3 months"
-overview: "Full description"
-summary: "Short summary"
-imageOnly: false
+category: "Social Media & Digital Marketing"
+role: "Lead Designer. Creative Direction, Concept Development, Visual System Design, Asset Production, and Delivery"
+year: 2025
+duration: "-"
+overview: "My third Social Media campaign: Refinement of a brand’s visual language and tone"
+summary: "A more mature phase centered on precision and efficiency. The goal shifted toward sharper messaging, faster production, and stronger visual recall."
+additionalText: "Developed for a veterinary clinic, a food brand, and agricultural products, the system was reduced to essentials. Layouts became cleaner, type more deliberate, and imagery more direct. The work prioritizes immediacy. Design that communicates in seconds while maintaining identity. The outcome is a streamlined set of assets built for clarity, rhythm, and sustained engagement.
+
+These are some of the assets I created for this campaign:"
 ---
 
-
-Our approach was deliberately slow. We spent the first three months simply observing — visiting each site at different
-times of day, in different seasons, noting how light moved through corridors and how sound carried across open halls.
-
+![Social Media III Campaign](../../assets/projects/social_media_three/main1.webp)

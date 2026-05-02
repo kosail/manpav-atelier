@@ -3,9 +3,8 @@ import {defineConfig, fontProviders} from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  // site: "https://kosail.github.io",
-  // base: "/manpav-atelier",
-  site: "http://localhost:4321",
+  site: "https://kosail.github.io",
+  base: "/manpav-atelier",
   fonts: [
     {
       provider: fontProviders.google(),

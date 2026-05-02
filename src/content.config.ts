@@ -9,11 +9,12 @@ const projects = defineCollection({
         image: image(),
         aspect: z.union([z.literal("landscape"), z.literal("portrait"), z.literal("square")]),
         category: z.string(),
+        role: z.string(),
         year: z.number(),
         duration: z.string(),
         overview: z.string(),
         summary: z.string(),
-        imageOnly: z.boolean()
+        additionalText: z.string()
     })
 });
 

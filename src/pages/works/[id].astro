@@ -1,6 +1,7 @@
 ---
 import {getCollection, render} from 'astro:content';
 import MainLayout from '@layouts/MainLayout.astro';
+import BackIcon from '@components/BackIcon.astro';
 
 export async function getStaticPaths() {
     const projects = await getCollection('projects');
@@ -17,14 +18,21 @@ const {
     image,
     category,
     year,
+    role,
     duration,
     overview,
     summary,
-    imageOnly
+    additionalText
 } = project.data;
+
+const worksPage = import.meta.env.SITE + import.meta.env.BASE_URL + 'works';
 ---
 
 <MainLayout pageTitle={title}>
+    <a href={worksPage} class="back-button">
+        <BackIcon/>
+        <p class="caption">Return to works</p>
+    </a>
     <!-- Hero -->
     <section class="section hero">
         <div class="grid">
@@ -44,7 +52,7 @@ const {
             </div>
             <div>
                 <p class="caption">Role</p>
-                <p class="text">Art Direction, Design</p>
+                <p class="text">{role}</p>
             </div>
             <div>
                 <p class="caption">Duration</p>
@@ -69,7 +77,7 @@ const {
                                 <p class="caption">Overview</p>
                             </div>
                             <div class="col-7">
-                                <p class="lead">{overview}</p>
+                                <p class="lead playfair">{overview}</p>
                                 <p class="body">{summary}</p>
                             </div>
                         </div>
@@ -79,27 +87,26 @@ const {
 
     <!-- Content -->
     {
-        imageOnly ? (
-                <section class="full-bleed">
-                    <div class="image-only-content">
-                        <Content/>
-                    </div>
-                </section>
-
-        ) : (
-                <section class="section">
-                    <hr class="rule"/>
-                    <div class="grid">
-                        <div class="col-3">
-                            <p class="caption">Process</p>
+        additionalText && (
+                    <section class="section">
+                        <hr class="rule"/>
+                        <div class="grid">
+                            <div class="col-3">
+                                <p class="caption">Process</p>
+                            </div>
+                            <div class="col-7 body">
+                                {additionalText}
+                            </div>
                         </div>
-                        <div class="col-7">
-                            <Content/>
-                        </div>
-                    </div>
-                </section>
+                    </section>
         )
     }
+
+    <section class="full-bleed">
+        <div class="body image-only-content">
+            <Content/>
+        </div>
+    </section>
 
 </MainLayout>
 
@@ -113,7 +120,7 @@ const {
     .section {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 1.5rem;
+        padding: 1rem 1.5rem;
     }
 
     .grid {
@@ -205,7 +212,7 @@ const {
         max-height: 800px;
         width: 100%;
         height: auto;
-        object-fit: contain;
+        object-fit: cover;
     }
 
     .image-only-content :global(p) {
@@ -236,7 +243,15 @@ const {
 
     @media (min-width: 1024px) {
         .media {
-            height: 800px;
+            max-height: 800px;
         }
+    }
+
+    .back-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
     }
 </style>

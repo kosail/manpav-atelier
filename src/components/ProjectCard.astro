@@ -6,9 +6,6 @@ interface Props {
     aspect: "portrait" | "landscape" | "square";
     category: string;
     year: number;
-    duration: string;
-    overview: string;
-    summary: string;
 }
 
 const {
@@ -17,10 +14,7 @@ const {
     image,
     aspect = "portrait",
     category,
-    year,
-    duration,
-    overview,
-    summary
+    year
 } = Astro.props;
 
 const aspectClass = {

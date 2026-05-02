@@ -25,36 +25,36 @@ import image26 from "@assets/gallery/26.webp";
 import image27 from "@assets/gallery/27.webp";
 
 const images = [
-    {src: image17, alt: "", class:"big-stretch"},
-    {src: image1, alt: "", class:"v-stretch"},
-    {src: image12, alt: "", class:"v-stretch"},
-    {src: image2, alt: "", class:"v-stretch"},
-    {src: image3, alt: "", class:"big-stretch"},
-    {src: image11, alt: "", class:"v-stretch"},
-    {src: image10, alt: "", class:"v-stretch"},
-    {src: image4, alt: "", class:"v-stretch"},
-    {src: image20, alt: "", class:"big-stretch"},
-    {src: image24, alt: "", class:"v-stretch"},
-    {src: image25, alt: "", class:"v-stretch"},
-    {src: image26, alt: "", class:"v-stretch"},
-    {src: image5, alt: "", class:"v-stretch"},
-    {src: image7, alt: "", class:"v-stretch"},
-    {src: image8, alt: "", class:"v-stretch"},
-    {src: image9, alt: "", class:"v-stretch"},
-    {src: image13, alt: "", class:"v-stretch"},
-    {src: image14, alt: "", class:"v-stretch"},
-    {src: image15, alt: "", class:"v-stretch"},
-    {src: image18, alt: "", class:"big-stretch"},
-    {src: image16, alt: "", class:"big-stretch"},
-    {src: image19, alt: "", class:"big-stretch"},
-    {src: image27, alt: "", class:"big-stretch"}
+    {src: image17, alt: "", class: "big-stretch"},
+    {src: image1, alt: "", class: "v-stretch"},
+    {src: image12, alt: "", class: "v-stretch"},
+    {src: image2, alt: "", class: "v-stretch"},
+    {src: image3, alt: "", class: "big-stretch"},
+    {src: image11, alt: "", class: "v-stretch"},
+    {src: image10, alt: "", class: "v-stretch"},
+    {src: image4, alt: "", class: "v-stretch"},
+    {src: image20, alt: "", class: "big-stretch"},
+    {src: image24, alt: "", class: "v-stretch"},
+    {src: image25, alt: "", class: "v-stretch"},
+    {src: image26, alt: "", class: "v-stretch"},
+    {src: image5, alt: "", class: "v-stretch"},
+    {src: image7, alt: "", class: "v-stretch"},
+    {src: image8, alt: "", class: "v-stretch"},
+    {src: image9, alt: "", class: "v-stretch"},
+    {src: image13, alt: "", class: "v-stretch"},
+    {src: image14, alt: "", class: "v-stretch"},
+    {src: image15, alt: "", class: "v-stretch"},
+    {src: image18, alt: "", class: "big-stretch"},
+    {src: image16, alt: "", class: "big-stretch"},
+    {src: image19, alt: "", class: "big-stretch"},
+    {src: image27, alt: "", class: "big-stretch"}
 ];
 ---
 
 <div class="gallery">
     {
         images.map((image) =>
-                <GalleryElement image={image.src} alt={image.alt} class={image.class} />)
+                <GalleryElement image={image.src} alt={image.alt} class={image.class}/>)
     }
 </div>
 
@@ -84,11 +84,11 @@ const images = [
             entries.forEach(entry => {
                 entry.target.classList.toggle('active', entry.isIntersecting);
             });
-        }, { threshold: 0.3 });
+        }, {threshold: 0.3});
 
         elements.forEach(el => observer.observe(el));
     }
 
     document.addEventListener("astro:page-load", setupGallery);
     setupGallery(); // First load may miss the previous event listener
-</script>>
+</script>
