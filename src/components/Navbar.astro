@@ -6,6 +6,8 @@ interface Props {
 const {class: className} = Astro.props;
 
 const site = import.meta.env.SITE + import.meta.env.BASE_URL;
+const worksUrl = `${site}/works`;
+const aboutUrl = `${site}/about`;
 ---
 
 <nav class={className}>
@@ -22,8 +24,8 @@ const site = import.meta.env.SITE + import.meta.env.BASE_URL;
     </div>
 
     <div class="menu-container" id="menu-container">
-        <a class="menu-entry playfair" href={"/works"}>WORKS</a>
-        <a class="menu-entry playfair" href={"/about"}>MORE ABOUT ME</a>
+        <a class="menu-entry playfair" href={worksUrl}>WORKS</a>
+        <a class="menu-entry playfair" href={aboutUrl}>MORE ABOUT ME</a>
     </div>
 </nav>
 
